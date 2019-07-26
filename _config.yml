@@ -30,3 +30,6 @@ google_analytics: "UA-24495574-1"
 sass:
   sass_dir: assets/css
   style: compressed
+
+show_drafts: false
+future: false
