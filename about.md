@@ -5,7 +5,7 @@ title: About Me
 
 <div class="post">
 	<h1 class="pageTitle">About Me</h1>
-	<img src="{{ '/assets/img/at-work.png' | prepend: site.baseurl }}" alt="">
+	<img src="{{ '/assets/img/at-work.jpg' | prepend: site.baseurl }}" alt="">
 	<p class="intro">I am a software engineer with long-term experience on embedded linux and applications development. I have written code for bootloaders, Linux kernel, modules and systems such as software update.</p>
 	<h3>Research Work</h3>
 	<ul>
