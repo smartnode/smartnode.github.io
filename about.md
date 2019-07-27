@@ -5,8 +5,8 @@ title: About Me
 
 <div class="post">
 	<h1 class="pageTitle">About Me</h1>
-	<!--img src="{{ '/assets/img/touring.jpg' | prepend: site.baseurl }}" alt=""-->
-	<p class="intro">I am a software engineer with long-term experience on embedded software and applications development with strong analytical skills and a broad range of computer expertise.</p>
+	<img src="{{ '/assets/img/at-work.png' | prepend: site.baseurl }}" alt="">
+	<p class="intro">I am a software engineer with long-term experience on embedded linux and applications development. I have written code for bootloaders, Linux kernel modules, and system softare such as software update.</p>
 	<h3>Research Work</h3>
 	<ul>
 		<li>E. Talipov, Y. Chon, H. Cha, User Context-based Data Delivery in Spontaneous Smartphone Networks, Pervasive and Mobile Computing, Volume 17, pp. 122-138, 2015.</li>
