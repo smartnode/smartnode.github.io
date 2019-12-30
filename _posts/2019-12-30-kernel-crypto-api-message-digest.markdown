@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Kernel Crypto API : Message Digest"
-date:   2019-12-31
+date:   2019-12-30
 description: Simple kernel module example to generated SHA256 digest of input.
 ---
 
