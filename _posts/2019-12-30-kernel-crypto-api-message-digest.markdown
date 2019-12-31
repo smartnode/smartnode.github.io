@@ -5,9 +5,9 @@ date:   2019-12-30
 description: Simple kernel module example to generated SHA256 digest of input.
 ---
 
-<p class="intro"><span class="dropcap">T</span>he kernel crypto API offers a rich set of cryptographic ciphers as well as other data transformation mechanisms and methods to invoke these</p>
+## Introduction
 
-The kernel crypto API refers to all algorithms as “transformations”. Therefore, a cipher handle variable usually has the name “tfm”. Besides cryptographic operations, the kernel crypto API also knows compression transformations and handles them the same way as ciphers.
+The kernel crypto API offers a rich set of cryptographic ciphers as well as other data transformation mechanisms and methods to invoke these. The kernel crypto API refers to all algorithms as “transformations”. Therefore, a cipher handle variable usually has the name “tfm”. Besides cryptographic operations, the kernel crypto API also knows compression transformations and handles them the same way as ciphers.
 
 The kernel crypto API serves the following entity types:
 
