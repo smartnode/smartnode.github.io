@@ -1,8 +1,8 @@
 title: elmurod.net
-description: software engineer notes
+description: software engineer's notes
 
 url: https://elmurod.net
-baseurl: "/"
+baseurl: ""
 paginate_path: "blog/page:num/"
 permalink: blog/:title/
 
@@ -23,18 +23,21 @@ plugins:
 
 paginate: 5
 
-#navigation:
-#  - title: Home
-#    url: /index.html
-#  - title: About
-#    url: /about
-#  - title: Contact
-#    url: /contact
+navigation:
+  - title: Home
+    url: /index.html
+    icon: fa-home
+  - title: About
+    url: /about
+    icon: fa-user
+#  - title: Blog
+#    url: /posts
+#    icon: fa-bookmark
 
 social:
   github: smartnode
   twitter: vorsagref
-  facebook: elmurod.talipov
+  linkedin: elmurod-talipov-0a730460
   email: elmurod.talipov@gmail.com
 
 google_analytics: "UA-24495574-1"

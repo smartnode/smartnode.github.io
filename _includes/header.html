@@ -1,0 +1,79 @@
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta name="description" content="{{ site.description }}">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    {% if page.title == "Home" %}
+    {{ site.title }} &middot; {{ site.tagline }}
+    {% else %}
+    {{ page.title }} &middot; {{ site.title }}
+    {% endif %}
+  </title>
+
+  <!-- CSS -->
+  <link id="theme-style" rel="stylesheet" href="{{ "/assets/css/theme-2.css" | prepend: site.baseurl }}">
+
+  <!-- Icons -->
+  <link rel="shortcut icon" href="{{ "/assets/favicon.ico" | prepend: site.baseurl }}">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}"
+    href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
+  {% if site.google_analytics %} {% include google_analytics.html %} {% endif %}
+</head>
+
+<body>
+  <header class="header text-center">
+    <h1 class="blog-name pt-lg-4 mb-0"><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+        aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="navigation" class="collapse navbar-collapse flex-column">
+        <div class="profile-section pt-3 pt-lg-0">
+          <img class="profile-image mb-3 rounded-circle mx-auto"
+            src="{{ "/assets/images/profile.png" | prepend: site.baseurl }}" alt="image">
+          <div class="bio mb-3">I am Elmurod Talipov, a system software engineer.<br><a href="/about">Find out more
+              about me</a></div>
+          <!--//bio-->
+          <ul class="social-list list-inline py-3 mx-auto">
+            <li class="list-inline-item"><a href="https://twitter.com/{{ site.social.twitter }}"><i
+                  class="fab fa-twitter fa-fw"></i></a></li>
+            <li class="list-inline-item"><a href="https://www.linkedin.com/in/{{ site.social.linkedin }}"><i
+                  class="fab fa-linkedin-in fa-fw"></i></a></li>
+            <li class="list-inline-item"><a href="https://github.com/{{ site.social.github }}"><i
+                  class="fab fa-github-alt fa-fw"></i></a></li>
+          </ul>
+          <!--//social-list-->
+          <hr>
+        </div>
+        <!--//profile-section-->
+        <ul class="navbar-nav flex-column text-left">
+          {% for link in site.navigation %}
+          {% assign current = nil %}
+          {% assign active = nil %}
+          {% if page.url contains link.url or forloop.first and page.url == '/' or page.url == 'index.html' %}
+          {% assign current = 'current' %}
+          {% assign active = 'active' %}
+          {% endif %}
+          <li class="nav-item {% if forloop.first %}first{% endif %} {{ active }} {% if forloop.last %}last{% endif %}">
+            <a class="nav-link" href="{{ link.url | prepend: site.baseurl }}">
+              <i class="fas {{ link.icon }} fa-fw mr-2"></i>{{ link.title }}{% if current %}
+              <span class="sr-only">({{ current }})</span>{% endif %}
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+
+        <div class="my-2 my-md-3">
+          <a class="btn btn-primary" href="mailto:{{ site.social.email }}" target="_blank">Get in Touch</a>
+        </div>
+      </div>
+    </nav>
+  </header>

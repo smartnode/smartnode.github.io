@@ -4,8 +4,9 @@ title: About Me
 ---
 
 <!-- img src="{{ site.baseurl }}public/images/at-work.jpg" alt=""-->
-<p class="message">I am a software engineer with long-term experience on embedded linux and applications development. I have written code for bootloaders, Linux kernel, modules and systems such as software update.</p>
-<h3>Research Work</h3>
+<p class="message">I am a software engineer with long-term experience on embedded linux and applications development. I write code for bootloaders, Linux kernel, modules, systems tools, boot scripts, offline and online software update.</p>
+<figure><img class="img-fluid" src="{{ "/assets/images/at-work.jpg" | prepend: site.baseurl }}" alt="image"></figure>
+<h4>Research Work</h4>
 <ul>
 	<li>E. Talipov, Y. Chon, H. Cha, User Context-based Data Delivery in Spontaneous Smartphone Networks, Pervasive and Mobile Computing, Volume 17, pp. 122-138, 2015.</li>
 	<li>J. Yin, Y. Chon, E. Talipov, H. Cha, Transient Data Delivery using Fine-Grained Mobility Data in Spontaneous Smartphone Networks, Wireless Communications and Mobile Computing, John Wiley Sons, pp. 910-923, 2015.</li>
@@ -27,7 +28,7 @@ title: About Me
 	<li>E. Talipov, D. Jin, J. Jung, I. Ha, Y. Choi, and C. Kim, Path Hopping Based on Reverse AODV for Security, in Proceedings of Asia Pacific Network Operations and Management Symposium (APNOMS) , LNCS 4238, Busan, Korea, September 2006, pp. 574 – 577</li>
 	<li>E.Talipov,C.Kim,“PerformanceAnalysisofPath-hoppingRoutingbasedonReverseAODV,”inProceedingsofthe First IEEE International Conference on Hybrid Information Technology (ICHIT), Jeju, Korea, November 2006, pp. 192 – 202.</li>
 </ul>
-<h3>Education</h3>
+<h4>Education</h4>
 <ul type="circle">
 	<li>Ph.D. in Computer Science, Yonsei University, Seoul, Republic of Korea</li>
 	<li>M.S. in Computer Engineering, Yeungnam University, Gyeongsan, Republic of Korea.</li>

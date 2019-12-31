@@ -2,10 +2,10 @@
 layout: post
 title:  "Kernel Crypto API : Message Digest"
 date:   2019-12-30
-description: Simple kernel module example to generated SHA256 digest of input.
+description: The kernel crypto API offers a rich set of cryptographic ciphers as well as other data transformation mechanisms and methods to invoke these. The kernel crypto API refers to all algorithms as “transformations”. Therefore, a cipher handle variable usually has the name “tfm”. Besides cryptographic operations, the kernel crypto API also knows compression transformations and handles them the same way as ciphers.
 ---
 
-## Introduction
+### Introduction
 
 The kernel crypto API offers a rich set of cryptographic ciphers as well as other data transformation mechanisms and methods to invoke these. The kernel crypto API refers to all algorithms as “transformations”. Therefore, a cipher handle variable usually has the name “tfm”. Besides cryptographic operations, the kernel crypto API also knows compression transformations and handles them the same way as ciphers.
 
@@ -14,7 +14,7 @@ The kernel crypto API serves the following entity types:
 * consumers requesting cryptographic services
 * data transformation implementations (typically ciphers) that can be called by consumers using the kernel crypto API
 
-## Terminology
+### Terminology
 
 The transformation implementation is an actual code or interface to hardware which implements a certain transformation with precisely defined behavior.
 
@@ -28,10 +28,10 @@ The structure that contains transformation objects may also be referred to as a 
 
 When using the initialization API calls, a cipher handle is created and returned to the consumer. The initialization API calls have all the same naming conventions of crypto_alloc*.
 
-## Sample Module
+### Sample Module
 We are going to write a simple kernel module that gets input from sysfs (``/sys/kernel/kcv/value``) and generates sha256 hash of input upon reading.
 Here is ``Makefile`` for the module, which we call Kernl Crypto Verification (KCV).
-```mak
+```make
 obj-m += kcv.o
 KDIR := /lib/modules/$(shell uname -r)/build
 
@@ -46,7 +46,7 @@ test:
 	sudo insmod kcv.ko
 ```
 
-### Create directory in ``sysfs``
+#### Create directory in ``sysfs``
 
 Let's first create sysfs with ``kobject_create_and_add`` function. This function creates a kobject structure dynamically and registers it with sysfs. If the kobject was not able to be created, NULL will be returned. When you are finished with this structure, call kobject_put and the structure will be dynamically freed when it is no longer being used.
 
@@ -136,7 +136,7 @@ static void __exit kcv_exit(void)
 }
 ```
 
-### Message digest generation
+#### Message digest generation
 To generate message digest first we need to create transformation object with ``crypto_alloc_shash(const char *alg, u32 type, u32 mask)``. The function allocates message digest handle, where ``alg`` is name of the message digest cypher, ``type`` is type, ``mask`` is mask of cypher.
 
 ```c
@@ -216,7 +216,7 @@ finish:
 
 When user reads the ``sysfs`` file, sha256 hash of input is calculated and returned as hexadecimal string.
 
-## Build and Test
+### Build and Test
 We have built and tested the module on Raspberry Pi3.
 ```sh
 root@sapi:/home/pi/kcv $ make
@@ -245,7 +245,7 @@ root@sapi:~$ echo "Hello world!" | sha256sum
 0ba904eae8773b70c75333db4de2f3ac45a8ad4ddba1b242f0b3cfc199391dd8  -
 ```
 
-## Full Sample Code
+### Full Sample Code
 
 ```c
 /*

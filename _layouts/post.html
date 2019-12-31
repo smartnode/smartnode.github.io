@@ -2,24 +2,50 @@
 layout: default
 ---
 
-<div class="post">
-  <h1 class="post-title">{{ page.title }}</h1>
-  <span class="post-date">{{ page.date | date_to_string }}</span>
-  {{ content }}
-</div>
+<!-- Plugin CSS -->
+<!--link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/monokai-sublime.min.css"-->
+<link id="code-style" rel="stylesheet" href="{{ "/assets/css/syntax.css" | prepend: site.baseurl }}">
 
-<div class="related">
-  <h2>Related Posts</h2>
-  <ul class="related-posts">
-    {% for post in site.related_posts limit:3 %}
-      <li>
-        <h3>
-          <a href="{{ site.baseurl }}{{ post.url | remove_first: '/'}}">
-            {{ post.title }}
-            <small>{{ post.date | date_to_string }}</small>
-          </a>
-        </h3>
-      </li>
-    {% endfor %}
-  </ul>
-</div>
+<article class="blog-post px-3 py-5 p-md-5">
+  <div class="container">
+    <header class="blog-post-header">
+      <h1 class="title mb-2">{{ page.title }}</h1>
+      <div class="meta mb-3"><span class="date">{{ page.date | date: '%B %d, %Y' }}</span><span
+          class="time">{{ page.content | number_of_words | divided_by:180 }} min
+          read</span></div>
+    </header>
+    <div class="blog-post-body" style="text-align: justify;">
+      {{ content }}
+    </div>
+
+    <nav class="blog-nav nav nav-justified my-5">
+      {% if page.previous %}
+      {% assign previous = page.previous %}
+      {% else %}
+      {% assign previous = site.posts[0] %}
+      {% endif %}
+      <a class="nav-link-prev nav-item nav-link rounded-left" href="{{site.baseurl}}{{previous.url}}"
+        title="Previous Post: {{previous.title}}">Previous<i class="arrow-prev fas fa-long-arrow-alt-left"></i></a>
+
+      {% if page.next %}
+      {% assign next = page.next %}
+      {% else %}
+      {%comment%}
+      As the array index start at zero we substract 1 to the total count,
+      we then get the last post index in the site.posts array
+      {%endcomment%}
+      {% assign last lastPostIndex = site.posts | size | minus: 1 %}
+      {% assign next = site.posts[lastPostIndex] %}
+      {% endif %}
+      <a class="nav-link-next nav-item nav-link rounded-right" href="{{site.baseurl}}{{next.url}}"
+        title="next Post: {{next.title}}">Next<i class="arrow-next fas fa-long-arrow-alt-right"></i></a>
+    </nav>
+
+  </div>
+</article>
+
+<!-- Page Specific JS -->
+<!--script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js"></script-->
+
+<!-- Custom JS -->
+<script src="{{ "/assets/js/blog.js" | prepend: site.baseurl }}"></script>
