@@ -96,14 +96,13 @@ static ssize_t kcv_store(struct kobject *kobj, struct kobj_attribute *attr, cons
 static struct kobj_attribute kcv_attribute = __ATTR(value, 0644, kcv_show, kcv_store);
 ```
 
-To create a single file attribute we are going to use ‘sysfs_create_file’.
+To create a single file attribute we are going to use ``sysfs_create_file`` function.
 
 ```c
 int sysfs_create_file (struct kobject * kobj, const struct attribute *attr);
 ```
 
-Where, ``kobj`` – object we’re creating for, ``attr`` – attribute descriptor.
-One can use another function ``sysfs_create_group`` to create a group of attributes.
+Where, ``kobj`` is object we’re creating for, ``attr`` is attribute descriptor. One can use another function ``sysfs_create_group`` to create a group of attributes.
 Once you have done with sysfs file, you should delete this file using ``sysfs_remove_file`` which has same prototype.
 
 We are going to create ``sysfs`` directory and file during module initialization and remove then when module is removed.
@@ -239,14 +238,14 @@ root@sapi:~$ cat /sys/kernel/kcv/value
 0ba904eae8773b70c75333db4de2f3ac45a8ad4ddba1b242f0b3cfc199391dd8
 ```
 
-Let's verify result with userspace ``sha25sum`` tool. It indeed matches.
+Let's verify result with userspace ``sha256sum`` tool. It indeed matches.
 ```sh
 root@sapi:~$ echo "Hello world!" | sha256sum
 0ba904eae8773b70c75333db4de2f3ac45a8ad4ddba1b242f0b3cfc199391dd8  -
 ```
 
 ### Full Sample Code
-
+You need to save following module code, and aforemenioned Makefile as file to build and test.
 ```c
 /*
  * Copyright (C) 2019 Elmurod Talipov <elmurod.talipov@gmail.com>
