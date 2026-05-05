@@ -40,6 +40,11 @@ social:
   linkedin: elmurod-talipov
   email: elmurod.talipov@gmail.com
 
+sass:
+  style: compressed
+  load_paths:
+    - _sass
+
 google_analytics: "UA-24495574-1"
 
 show_drafts: false
