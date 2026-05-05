@@ -1,0 +1,293 @@
+---
+---
+
+// 1. Configuration
+@import "bootstrap/scss/functions";
+
+// Neutral Material Dark Palette
+$primary: #e3e3e3; // Off-white for primary accents
+$secondary: #b0b0b0; // Light gray for secondary
+$background: #0f0f0f; // Very dark neutral background
+$surface: #1a1a1a; // Neutral surface
+$on-surface: #e3e3e3; // High-emphasis text (off-white)
+$on-surface-variant: #a0a0a0; // Medium-emphasis text (gray)
+
+// Sidebar/Navbar Custom Color (Deep Navy/Blue)
+$sidebar-bg: #0d1117; 
+
+// Bootstrap Variable Overrides
+$body-bg: $background;
+$body-color: $on-surface;
+$card-bg: $surface;
+$card-border-color: rgba(255, 255, 255, 0.08);
+$navbar-dark-color: $on-surface-variant;
+$navbar-dark-hover-color: #ffffff;
+$btn-border-radius: 0.5rem; 
+$card-border-radius: 0.5rem;
+$enable-shadows: true;
+$link-color: #ffffff;
+$link-decoration: underline;
+$link-hover-color: #ffffff;
+
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+
+// 2. Layout & components
+@import "bootstrap/scss/root";
+@import "bootstrap/scss/reboot";
+@import "bootstrap/scss/type";
+@import "bootstrap/scss/images";
+@import "bootstrap/scss/containers";
+@import "bootstrap/scss/grid";
+@import "bootstrap/scss/tables";
+@import "bootstrap/scss/forms";
+@import "bootstrap/scss/buttons";
+@import "bootstrap/scss/transitions";
+@import "bootstrap/scss/dropdown";
+@import "bootstrap/scss/button-group";
+@import "bootstrap/scss/nav";
+@import "bootstrap/scss/navbar";
+@import "bootstrap/scss/card";
+@import "bootstrap/scss/accordion";
+@import "bootstrap/scss/breadcrumb";
+@import "bootstrap/scss/pagination";
+@import "bootstrap/scss/badge";
+@import "bootstrap/scss/alert";
+@import "bootstrap/scss/progress";
+@import "bootstrap/scss/list-group";
+@import "bootstrap/scss/close";
+@import "bootstrap/scss/toasts";
+@import "bootstrap/scss/modal";
+@import "bootstrap/scss/tooltip";
+@import "bootstrap/scss/popover";
+@import "bootstrap/scss/carousel";
+@import "bootstrap/scss/spinners";
+@import "bootstrap/scss/offcanvas";
+@import "bootstrap/scss/placeholders";
+
+// 3. Helpers
+@import "bootstrap/scss/helpers";
+
+// 4. Utilities
+@import "bootstrap/scss/utilities/api";
+
+// 5. Custom Theme Styles
+$sidebar-width: 280px;
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: $body-bg;
+  color: $body-color;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: $sidebar-width;
+  background: $sidebar-bg;
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  z-index: 1000;
+  
+  @media (max-width: 991.98px) {
+    position: relative;
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+}
+
+.main-wrapper {
+  margin-left: $sidebar-width;
+  min-height: 100vh;
+  background-color: $background;
+  
+  @media (max-width: 991.98px) {
+    margin-left: 0;
+  }
+}
+
+.card, .item {
+  background: $surface;
+  border-radius: $card-border-radius;
+  border: 1px solid $card-border-color;
+  padding: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.blog-name a {
+  color: #ffffff !important;
+  text-decoration: none !important;
+  font-size: 1.5rem;
+}
+
+.nav-link {
+  color: $on-surface-variant !important;
+  margin: 0.2rem 1rem;
+  padding: 0.7rem 1.2rem !important;
+  border-radius: 0.25rem;
+  text-decoration: none !important;
+  transition: all 0.2s ease;
+  
+  &:hover, &.active {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.08);
+  }
+}
+
+.profile-section {
+  padding: 2.5rem 1rem;
+}
+
+.profile-image {
+  width: 90px;
+  height: 90px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.bio {
+  font-size: 0.9rem;
+  color: $on-surface-variant;
+}
+
+.btn-primary {
+  background-color: #ffffff;
+  border-color: #ffffff;
+  color: #000000;
+  font-weight: 600;
+  
+  &:hover {
+    background-color: #e0e0e0;
+    border-color: #e0e0e0;
+    color: #000000;
+  }
+}
+
+.btn-outline-primary {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.2);
+  
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #ffffff;
+    color: #ffffff;
+  }
+}
+
+.text-primary {
+  color: #ffffff !important;
+}
+
+.text-secondary {
+  color: $on-surface-variant !important;
+}
+
+code {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #e3e3e3;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+}
+
+pre {
+  background: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+.blog-post-body {
+  font-size: 1.1rem;
+  color: #d1d1d1; 
+  
+  p, li {
+    margin-bottom: 1.8rem;
+  }
+}
+
+// Spacing for Homepage Post List
+.item {
+  .title {
+    margin-bottom: 0.75rem !important;
+  }
+  .meta {
+    margin-bottom: 1.25rem !important;
+  }
+  .intro {
+    margin-bottom: 1.5rem !important;
+    line-height: 1.7;
+  }
+}
+
+// Stylized Image Container for About Page
+.stylized-image-container {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  margin: 3rem 0;
+  background-color: #0d1117;
+  
+  // Modern Geometric Pattern (Grid with dots)
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  
+  overflow: hidden;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+
+  .image-wrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%; // Occupy half width initially
+    height: 100%;
+    overflow: hidden;
+    transition: width 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+    z-index: 2;
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+      filter: grayscale(20%);
+    }
+  }
+
+  &:hover {
+    .image-wrapper {
+      width: 100%; // Expand to cover full pattern
+      box-shadow: none;
+    }
+    
+    img {
+      transform: scale(1.03); 
+      filter: grayscale(0%);
+    }
+  }
+
+  // Optional subtle highlight on the pattern side
+  &::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.02) 0%, transparent 100%);
+    pointer-events: none;
+  }
+}

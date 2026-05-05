@@ -4,7 +4,11 @@ title: About Me
 ---
 
 <p class="message">I am a software engineer with long-term experience on embedded linux systems and applications development. I write code for bootloaders, Linux Kernel, modules, system tools, boot scripts, offline and online software update.</p>
-<figure><img class="rounded img-fluid" src="{{ "/assets/images/at-work.jpg" | prepend: site.baseurl }}" alt="Working"></figure>
+<div class="stylized-image-container">
+  <div class="image-wrapper">
+    <img src="{{ "/assets/images/swiss.jpg" | prepend: site.baseurl }}" alt="Switzerland">
+  </div>
+</div>
 <h4>Research Work</h4>
 <ul>
 	<li>E. Talipov, Y. Chon, H. Cha, User Context-based Data Delivery in Spontaneous Smartphone Networks, Pervasive and Mobile Computing, Volume 17, pp. 122-138, 2015.</li>

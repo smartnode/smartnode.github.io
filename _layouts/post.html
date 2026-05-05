@@ -3,49 +3,36 @@ layout: default
 ---
 
 <!-- Plugin CSS -->
-<!--link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/monokai-sublime.min.css"-->
 <link id="code-style" rel="stylesheet" href="{{ "/assets/css/syntax.css" | prepend: site.baseurl }}">
 
 <article class="blog-post px-3 py-5 p-md-5">
-  <div class="container">
-    <header class="blog-post-header">
-      <h1 class="title mb-2">{{ page.title }}</h1>
-      <div class="meta mb-3"><span class="date">{{ page.date | date: '%B %d, %Y' }}</span><span
-          class="time">{{ page.content | number_of_words | divided_by:180 }} min
-          read</span></div>
+  <div class="container card p-4 p-md-5 shadow-sm border-0">
+    <header class="blog-post-header mb-4">
+      <h1 class="title mb-2 text-primary">{{ page.title }}</h1>
+      <div class="meta mb-3 text-secondary">
+        <span class="date me-3"><i class="bi bi-calendar3 me-1"></i>{{ page.date | date: '%B %d, %Y' }}</span>
+        <span class="time"><i class="bi bi-clock me-1"></i>{{ page.content | number_of_words | divided_by:180 }} min read</span>
+      </div>
     </header>
-    <div class="blog-post-body" style="text-align: justify;">
+    <div class="blog-post-body text-secondary" style="text-align: justify; line-height: 1.8;">
       {{ content }}
     </div>
 
     <nav class="blog-nav nav nav-justified my-5">
       {% if page.previous %}
       {% assign previous = page.previous %}
-      {% else %}
-      {% assign previous = site.posts[0] %}
+      <a class="nav-link-prev nav-item nav-link btn btn-outline-secondary rounded-pill me-2" href="{{site.baseurl}}{{previous.url}}"
+        title="Previous Post: {{previous.title}}"><i class="bi bi-arrow-left me-2"></i>Previous</a>
       {% endif %}
-      <a class="nav-link-prev nav-item nav-link rounded-left" href="{{site.baseurl}}{{previous.url}}"
-        title="Previous Post: {{previous.title}}">Previous<i class="arrow-prev fas fa-long-arrow-alt-left"></i></a>
 
       {% if page.next %}
       {% assign next = page.next %}
-      {% else %}
-      {%comment%}
-      As the array index start at zero we substract 1 to the total count,
-      we then get the last post index in the site.posts array
-      {%endcomment%}
-      {% assign last lastPostIndex = site.posts | size | minus: 1 %}
-      {% assign next = site.posts[lastPostIndex] %}
+      <a class="nav-link-next nav-item nav-link btn btn-outline-secondary rounded-pill ms-2" href="{{site.baseurl}}{{next.url}}"
+        title="Next Post: {{next.title}}">Next<i class="bi bi-arrow-right ms-2"></i></a>
       {% endif %}
-      <a class="nav-link-next nav-item nav-link rounded-right" href="{{site.baseurl}}{{next.url}}"
-        title="next Post: {{next.title}}">Next<i class="arrow-next fas fa-long-arrow-alt-right"></i></a>
     </nav>
-
   </div>
 </article>
-
-<!-- Page Specific JS -->
-<!--script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js"></script-->
 
 <!-- Custom JS -->
 <script src="{{ "/assets/js/blog.js" | prepend: site.baseurl }}"></script>

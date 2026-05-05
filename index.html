@@ -6,31 +6,32 @@ title: Home
 <section class="blog-list px-3 py-5 p-md-5">
   <div class="container">
     {% for post in paginator.posts %}
-    <div class="item mb-5">
-      <div class="media">
-        <div class="media-body">
-          <h3 class="title mb-1"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
-          <div class="meta mb-1">
-            <span class="date">{{ post.date | date: '%B %d, %Y' }}</span>
-            <span class="time">{{ post.content | number_of_words | divided_by:180 }} min read</span>
-          <div class="intro">{% if post.description %}{{ post.description }}{% else %}{{ post.excerpt | strip_html }}{% endif %}</div>
-          <a class="more-link" href="{{ post.url | prepend: site.baseurl }}">Read more &rarr;</a>
+    <div class="item mb-5 p-4 shadow-sm border-0">
+      <div class="d-flex flex-column flex-md-row">
+        <div class="flex-grow-1">
+          <h3 class="title mb-1"><a href="{{ post.url | prepend: site.baseurl }}" class="text-decoration-none">{{ post.title }}</a></h3>
+          <div class="meta mb-1 text-secondary">
+            <span class="date me-2"><i class="bi bi-calendar3 me-1"></i>{{ post.date | date: '%B %d, %Y' }}</span>
+            <span class="time"><i class="bi bi-clock me-1"></i>{{ post.content | number_of_words | divided_by:180 }} min read</span>
+          </div>
+          <div class="intro mb-3 text-secondary">{% if post.description %}{{ post.description }}{% else %}{{ post.excerpt | strip_html }}{% endif %}</div>
+          <a class="btn btn-outline-primary btn-sm rounded-pill" href="{{ post.url | prepend: site.baseurl }}">Read more &rarr;</a>
         </div>
-        <!--//media-body-->
       </div>
-      <!--//media-->
     </div>
     {% endfor %}
-    <!--//item-->
+
     <!-- Pagination links -->
-    <div class="pagination">
+    <nav class="pagination d-flex justify-content-between mt-5">
       {% if paginator.previous_page %}
-      <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}" class="previous button__outline">Newer
-        Posts</a>
+      <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}" class="btn btn-outline-primary rounded-pill">Newer Posts</a>
+      {% else %}
+      <div></div>
       {% endif %}
+      
       {% if paginator.next_page %}
-      <a href="{{ paginator.next_page_path | prepend: site.baseurl }}" class="next button__outline">Older Posts</a>
+      <a href="{{ paginator.next_page_path | prepend: site.baseurl }}" class="btn btn-outline-primary rounded-pill">Older Posts</a>
       {% endif %}
-    </div>
+    </nav>
   </div>
 </section>

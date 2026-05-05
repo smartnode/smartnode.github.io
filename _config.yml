@@ -26,10 +26,10 @@ paginate: 5
 navigation:
   - title: Home
     url: /index.html
-    icon: fa-home
+    icon: bi-house
   - title: About
     url: /about
-    icon: fa-user
+    icon: bi-person
 #  - title: Blog
 #    url: /posts
 #    icon: fa-bookmark
